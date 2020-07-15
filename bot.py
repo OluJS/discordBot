@@ -71,5 +71,13 @@ async def clear(ctx, amount=5):
 async def getAvatar(ctx, member: discord.Member):
     await ctx.send('{}'.format(member.avatar_url))
 
+@client.command
+async def kickUser(ctx, member: discord.Member, *, reason=None):
+    await member.kick(reason=reason)
+    await ctx.send(f'Kicked {member.mention}')
+
+
+
+
 
 client.run(TOKEN)
